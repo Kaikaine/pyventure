@@ -21,13 +21,13 @@ class Player:
     def move_room(self):
         command = input("Please choose from one of these commands. 'N' 'S' 'E' 'W': ")
         if command.lower() == "n":
-            Room(self.location).area.move_north
+            self.location = self.location.move_north()
         elif command.lower() == "e":
             self.location = self.location.move_east()
         elif command.lower == "s":
-            Room.area.move_south
+            self.location = self.location.move_south()
         elif command.lower() == "w":
-            Room.area.move_west
+            self.location = self.location.move_west()
         elif command.lower == "q":
             pass
         else:
@@ -35,11 +35,6 @@ class Player:
 
 
 class Room:
-    def __init__(self, area):
-        self.area = area
-
-
-class Outside:
     def __init__(self, name, north, south, east, west, items):
         self.name = name
         self.items = items
@@ -49,27 +44,27 @@ class Outside:
         self.west = west
 
     def move_north(self):
-        Player.location = self.north
-        return
+        print(f"Player moved to: {self.north} \n")
+        return self.north
 
     def move_east(self):
         print(f"Player moved to: {self.east} \n")
         return self.east
 
     def move_south(self):
-        Player.location = self.south
-        return
+        print(f"Player moved to: {self.south} \n")
+        return self.south
 
     def move_west(self):
-        Player.location = self.west
-        return
+        print(f"Player moved to: {self.west} \n")
+        return self.west
 
     def __str__(self):
         return self.name
 
 
 print(f"Hello {player_name} and welcome to my game")
-new_player = Player(["flashlight"], Outside("Outside", "Tower entrance", None, "car", None, ["key"]), player_name)
+new_player = Player(["flashlight"], Room("Outside", "Tower entrance", None, "car", None, ["key"]), player_name)
 print(new_player.location)
 new_player.move_room()
 new_player.current_location()
