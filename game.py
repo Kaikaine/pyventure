@@ -12,9 +12,15 @@ class Player:
 
     def current_location(self):
         print(f"My current location is: {self.location} \n")
+        return
 
     def view_items(self):
         print(self.items)
+        return
+
+    def move(self, direction):
+        pass
+
 
 
 class Room:
@@ -32,6 +38,15 @@ class Outside:
         self.west = west
 
     def move_north(self, north):
+        pass
+
+    def move_east(self, north):
+        pass
+
+    def move_south(self, north):
+        pass
+
+    def move_west(self, north):
         pass
 
 
